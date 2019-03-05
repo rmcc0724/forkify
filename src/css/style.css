@@ -684,4 +684,5 @@ div button.delete__btn.btn-small {
     /* text-align: center; */
     margin: 0 auto;
     margin-top: 15px;
+    display: none;
 }

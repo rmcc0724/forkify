@@ -22,6 +22,10 @@ export const deleteAll = () => {
     document.querySelector('.shopping__list').innerHTML = "";
 };
 
+export const deleteAllToggle = (e) => {
+    let toggle = document.querySelector('div .delete__btn').style;
+    e ? toggle.display = "block" : toggle.display = "none";
+};
 
 export const deleteItem = id => {
     const item = document.querySelector(`[data-itemid="${id}"]`);

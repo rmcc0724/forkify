@@ -120,6 +120,7 @@ const controlList = () => {
         const item = state.list.addItem(el.count, el.unit, el.ingredient);
         listView.renderItem(item);
     });
+        listView.deleteAllToggle(true);
 };
 
 // Handle delete and update list item events
@@ -145,6 +146,7 @@ elements.shopping.addEventListener('click', e => {
 elements.deleteBtn.addEventListener('click', e => {
     state.list.deleteAll();
     listView.deleteAll();
+    listView.deleteAllToggle(false);
 });
 
 /** 
