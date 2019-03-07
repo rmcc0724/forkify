@@ -156,7 +156,7 @@ elements.deleteBtn.addEventListener('click', e => {
 
 elements.addCart.addEventListener('click', e => {
     if (!state.list) state.list = new List();
-
+    console.log(state.list);
     if (listView.getCartQty() > 0 && listView.getCartItem() !== "") {
         const item = state.list.addItem(listView.getCartQty(), listView.getCartUnit(), listView.getCartItem());
         console.log(item);
@@ -170,6 +170,22 @@ elements.addCart.addEventListener('click', e => {
         alert("You left some required fields blank!");
     }
 
+});
+
+// Restore shopping list on page load
+window.addEventListener('load', () => {
+    state.list = new List();
+
+    // Restore likes
+    state.list.readStorage();
+    //console.log(state.list.items);
+    state.list.items.forEach(item => listView.renderItem(item));
+// console.log(state.list.items.length);
+    if (state.list.items.length > 0) {
+        listView.deleteAllToggle(true);
+    } else {
+        listView.deleteAllToggle(false);
+    }
 });
 
 
