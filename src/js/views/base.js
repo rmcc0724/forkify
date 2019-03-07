@@ -6,9 +6,14 @@ export const elements = {
     searchResPages: document.querySelector('.results__pages'),
     recipe: document.querySelector('.recipe'),
     shopping: document.querySelector('.shopping__list'),
+    shoppingDelete: document.querySelector('.shopping__delete'),
     likesMenu: document.querySelector('.likes__field'),
     likesList: document.querySelector('.likes__list'),
-    deleteBtn: document.querySelector('.delete__btn')
+    deleteBtn: document.querySelector('.delete__btn'),
+    addCart: document.querySelector('.add__cart'),
+    cartQty: document.querySelector('.cart__qty'),
+    cartUnit: document.querySelector('#cart__unit'),
+    cartItem: document.querySelector('.cart__item')
 };
 
 export const elementStrings = {

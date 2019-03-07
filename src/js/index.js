@@ -120,7 +120,7 @@ const controlList = () => {
         const item = state.list.addItem(el.count, el.unit, el.ingredient);
         listView.renderItem(item);
     });
-        listView.deleteAllToggle(true);
+    listView.deleteAllToggle(true);
 };
 
 // Handle delete and update list item events
@@ -133,6 +133,10 @@ elements.shopping.addEventListener('click', e => {
         state.list.deleteItem(id);
 
         // Delete from UI
+        if (state.list.items.length === 0) {
+            listView.deleteAllToggle(false);
+        }
+
         listView.deleteItem(id);
 
         // Handle the count update
@@ -141,6 +145,7 @@ elements.shopping.addEventListener('click', e => {
         const val = parseFloat(e.target.value, 10);
         state.list.updateCount(id, val);
     }
+
 });
 
 elements.deleteBtn.addEventListener('click', e => {
@@ -148,6 +153,25 @@ elements.deleteBtn.addEventListener('click', e => {
     listView.deleteAll();
     listView.deleteAllToggle(false);
 });
+
+elements.addCart.addEventListener('click', e => {
+    if (!state.list) state.list = new List();
+
+    if (listView.getCartQty() > 0 && listView.getCartItem() !== "") {
+        const item = state.list.addItem(listView.getCartQty(), listView.getCartUnit(), listView.getCartItem());
+        console.log(item);
+        listView.renderItem(item);
+        listView.deleteAllToggle(true);
+        listView.clearCartItem();
+        listView.clearCartQty();
+        listView.clearCartUnit();
+    }
+    else {
+        alert("You left some required fields blank!");
+    }
+
+});
+
 
 /** 
  * LIKE CONTROLLER

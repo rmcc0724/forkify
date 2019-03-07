@@ -343,10 +343,23 @@
 
         <div class="shopping">
             <h2 class="heading-2">My Shopping List</h2>
+            <div class="add-cart">
+                <input type="text" class="cart__item" placeholder="enter item here">
+                <input type="number" step="value" class="cart__qty" placeholder="Quantity">
+                <select id="cart__unit">
+                <option value="cup" selected>cup</option>
+                <option value="oz">oz</option>
+                <option value="tbsp">tbsp</option>
+                <option value="tsp">tsp</option>
+                </select>
+                <button class="btn add__cart">
+                
+                    <span>Add item to cart</span>
+                </button>
 
-            <ul class="shopping__list">
-
-                <!--
+                <ul class="shopping__list">
+            </div>
+            <!--
                 <li class="shopping__item">
                     <div class="shopping__count">
                         <input type="number" value="500" step="100">
@@ -428,7 +441,7 @@
                 -->
             </ul>
             <div>
-            <button class="delete__btn btn-small">
+                <button class="delete__btn btn-small">
                 <span>Delete Shopping List</span>
                 <!--<svg class="search__icon">-->
                 <!--    <use href="dist/img/icons.svg#icon-triangle-right"></use>-->

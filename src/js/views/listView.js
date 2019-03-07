@@ -1,5 +1,21 @@
 import { elements } from './base';
 
+export const getCartItem = () => elements.cartItem.value;
+export const getCartUnit = () => elements.cartUnit.value;
+export const getCartQty = () => elements.cartQty.value;
+
+export const clearCartItem = () => {
+    elements.cartItem.value = '';
+};
+
+export const clearCartQty = () => {
+    elements.cartQty.value = '';
+};
+
+export const clearCartUnit = () => {
+    elements.cartUnit.value = 'cup';
+};
+
 export const renderItem = item => {
     const markup = `
         <li class="shopping__item" data-itemid=${item.id}>
